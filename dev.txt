@@ -1,0 +1,115 @@
+	sudo apt update
+
+install JAVA
+
+	sudo apt install openjdk-8-jdk
+jenkins 
+ 
+	wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add
+	
+	echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
+
+	sudo apt update
+	
+	sudo apt install jenkins
+
+      CHECK
+	sudo systemctl status Jenkins
+	
+	add 8080 (not http)
+
+      Password
+	/var/lib/jenkins/secrets/initialAdminPassword
+
+      ROOT
+	sudo su
+	sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+
+Git
+	git init
+	git config --global user.name kevin
+	git config --global user.email kevinkriston11@gmail.com
+
+	ADD HTML
+	git add exam.html
+	git commit -m exam.html
+	git remote add origin https://github.com/kevinkriston/sample.git
+	git push -f origin master
+
+ANSIBLE
+	sudo passwd root
+	su root
+		
+	sudo apt install software-properties-common
+	sudo apt-add-repository ppa:ansible/ansible
+	sudo apt update
+	sudo apt install ansible 
+  
+      ADD NEW USER
+	
+	sudo adduser cp08		
+	su cp08
+	ssh-keygen
+
+
+
+
+
+TERAFORM
+ zip	sudo apt-get install wget unzip
+	
+
+ download teraform	wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip
+
+  unzip 	unzip terraform_0.12.7_linux_amd64.zip
+
+ move tform	sudo mv terraform /usr/local/bin/
+
+ start teraform  terraform --version 
+	
+	mkdir projects
+	cd projects
+	touch main.tf
+	vim main.tf
+		Provider
+			 provider "aws" 
+			{
+  			 access_key = "   access_key   "
+   			secret_key = " secret_key "
+   			region = "us-west-1"
+ 			}
+	terraform init
+	terraform plan
+	terraform apply
+
+
+
+CLOD FORMATION 
+	
+	mysql –h localhost –P 3306 –u  root -p
+	create database ra
+	Use ra
+
+
+
+CHEF SOLO
+	sudo apt install git
+	sudo apt install curl
+ 	sudo true && curl -L https://www.opscode.com/chef/install.sh | sudo bash
+	wget https://packages.chef.io/files/stable/chefdk/3.2.30/ubuntu/18.04/chefdk_3.2.30-1_amd64.deb
+	dpkg -i chefdk_3.2.30-1_amd64.deb
+	chef --version
+	sudo mkdir chef_Repo
+	nano hello.rb
+		file 'HelloChef' do
+ 		content 'Hello Ruby'
+		end
+	chef-apply hello.rb
+
+
+
+
+	
+
+
+
